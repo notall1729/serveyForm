@@ -1,6 +1,7 @@
 package packages;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class questionsPage {
 
@@ -10,9 +11,12 @@ public class questionsPage {
         panel.setBounds(0, 0, 600, 600);
         panel.setLayout(null);
 
+        Font smallFont = new Font("Times New Roman", Font.BOLD, 15);
+
         // Question 1
         JLabel question1 = new JLabel("How attractive do you find the software's user interface?");
-        question1.setBounds(10, 10, 300, 20);
+        question1.setFont(smallFont);
+        question1.setBounds(10, 10, 400, 20);
 
         JRadioButton radio1_1 = new JRadioButton("1");
         radio1_1.setBounds(10, 40, 100, 20);
@@ -34,7 +38,8 @@ public class questionsPage {
 
         // Question 2
         JLabel question2 = new JLabel("Is it easy for you to access the various features of the software?");
-        question2.setBounds(10, 90, 300, 20);
+        question2.setFont(smallFont);
+        question2.setBounds(10, 90, 450, 20);
 
 
         JRadioButton radio2_1 = new JRadioButton("1");
@@ -57,7 +62,8 @@ public class questionsPage {
 
         // Question 3
         JLabel question3 = new JLabel("How simple and user-friendly is the software page design?");
-        question3.setBounds(10, 170, 300, 20);
+        question3.setFont(smallFont);
+        question3.setBounds(10, 170, 400, 20);
 
         JRadioButton radio3_1 = new JRadioButton("1");
         radio3_1.setBounds(10, 200, 100, 20);
@@ -79,7 +85,8 @@ public class questionsPage {
 
         // Question 4
         JLabel question4 = new JLabel("Are the colors and fonts used in the software appropriate?");
-        question4.setBounds(10, 250, 350, 20);
+        question4.setFont(smallFont);
+        question4.setBounds(10, 250, 450, 20);
 
         JRadioButton radio4_1 = new JRadioButton("1");
         radio4_1.setBounds(10, 280, 100, 20);
@@ -101,6 +108,7 @@ public class questionsPage {
 
         // Next button to go to Page3
         JButton nextButton = new JButton("Next page");
+        nextButton.setFont(smallFont);
         nextButton.setBounds(10, 320, 100, 20);
         nextButton.addActionListener(e -> {
             frame.remove(panel);
