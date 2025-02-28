@@ -1,3 +1,4 @@
+
 import javax.swing.*;
 import packages.informationPage;
 import java.awt.*;
@@ -12,29 +13,33 @@ public class Main {
         frame.setSize(600, 600);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(null);
+
+        // Change panel layout to BorderLayout
+        frame.setLayout(new BorderLayout());
 
         // Create and configure the main panel
         JPanel panel = new JPanel();
-        panel.setLayout(null);
-        panel.setBounds(0, 0, 600, 600);
+        panel.setLayout(new BorderLayout());
+        panel.setBackground(Color.YELLOW); // Set panel color to yellow
 
         // Create title label
         JLabel title = new JLabel("Survey form");
-        title.setBounds(10, 10, 200, 30);
         title.setFont(bigFont);
+        title.setHorizontalAlignment(JLabel.CENTER); // Center-align the title
+        panel.add(title, BorderLayout.NORTH);
 
         // Create start button
         JButton startButton = new JButton("Start!");
         startButton.setFont(bigFont);
-        startButton.setBounds(10, 60, 100, 30);
+        startButton.setAlignmentX(Component.CENTER_ALIGNMENT); // Center-align button
+        startButton.setAlignmentY(Component.CENTER_ALIGNMENT);
 
-        // Add components to the panel
-        panel.add(title);
-        panel.add(startButton);
+        // Add rigid area to separate button
+        panel.add(Box.createRigidArea(new Dimension(10, 20)), BorderLayout.CENTER); // Space between title and button
+        panel.add(startButton, BorderLayout.CENTER); // Add start button in the center
 
         // Add panel to the frame
-        frame.add(panel);
+        frame.add(panel, BorderLayout.CENTER);
 
         // Add action listener to the start button
         startButton.addActionListener(e -> {
