@@ -3,7 +3,6 @@ import packages.informationPage;
 import java.awt.*;
 
 public class Main {
-
     public static void main(String[] args) {
         // Create and configure the main frame
         Font bigFont = new Font("Times New Roman", Font.BOLD, 20);
@@ -12,47 +11,50 @@ public class Main {
         frame.setSize(600, 600);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(null);
+        frame.setLayout(new BorderLayout());
 
-        // Create and configure the main panel
+        // Main panel with BorderLayout and yellow background
         JPanel panel = new JPanel();
-        panel.setLayout(null);
-        panel.setBounds(0, 0, 600, 600);
+        panel.setLayout(new BorderLayout());
+        panel.setBackground(new Color(0xcdda3e)); // Set panel background color to yellow
 
-        // Create title label
+        // Title label (center-aligned horizontally)
         JLabel title = new JLabel("Survey form");
-        title.setBounds(10, 10, 200, 30);
         title.setFont(bigFont);
+        title.setHorizontalAlignment(JLabel.CENTER);
+        panel.add(title, BorderLayout.NORTH);
 
-        // Create start button
+        // Start button with normal size
         JButton startButton = new JButton("Start!");
         startButton.setFont(bigFont);
-        startButton.setBounds(10, 60, 100, 30);
+        startButton.setPreferredSize(new Dimension(100, 40));
+        startButton.setAlignmentX(Component.CENTER_ALIGNMENT); // Ensure center alignment
 
-        // Add components to the panel
-        panel.add(title);
-        panel.add(startButton);
+        // South panel with FlowLayout for center horizontal alignment
+        JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        southPanel.setBackground(new Color(0xcdda3e)); // Set panel background color to yellow
+        southPanel.add(startButton);
+        panel.add(southPanel, BorderLayout.SOUTH);
 
-        // Add panel to the frame
-        frame.add(panel);
+        // Add main panel to the frame
+        frame.add(panel, BorderLayout.CENTER);
 
-        // Add action listener to the start button
+        // Action listener for start button
         startButton.addActionListener(e -> {
-            // Remove the current panel
             frame.remove(panel);
             frame.revalidate();
             frame.repaint();
 
-            // Load and display the first page
+            // Load and display the information page
             informationPage informationPage = new informationPage();
             informationPage.create(frame);
 
-            // Refresh the frame
             frame.revalidate();
             frame.repaint();
         });
 
-        // Make the frame visible
         frame.setVisible(true);
     }
 }
+
+
