@@ -18,25 +18,30 @@ public class Main {
         panel.setLayout(new BorderLayout());
         panel.setBackground(new Color(0xcdda3e)); // Set panel background color to yellow
 
-        // Title label (center-aligned horizontally)
+        // Title label
         JLabel title = new JLabel("Survey form");
         title.setFont(bigFont);
         title.setHorizontalAlignment(JLabel.CENTER);
         panel.add(title, BorderLayout.NORTH);
 
-        // Start button with normal size
+        // Create a new panel 
+        JPanel centerPanel = new JPanel();
+        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
+        centerPanel.setBackground(new Color(0xcdda3e));
+
+        // Add vertical glue
+        centerPanel.add(Box.createVerticalGlue());
+
+        // Start button
         JButton startButton = new JButton("Start!");
         startButton.setFont(bigFont);
         startButton.setPreferredSize(new Dimension(100, 40));
-        startButton.setAlignmentX(Component.CENTER_ALIGNMENT); // Ensure center alignment
+        startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        centerPanel.add(startButton);
 
-        // South panel with FlowLayout for center horizontal alignment
-        JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        southPanel.setBackground(new Color(0xcdda3e)); // Set panel background color to yellow
-        southPanel.add(startButton);
-        panel.add(southPanel, BorderLayout.SOUTH);
-
-        // Add main panel to the frame
+        // Add
+        centerPanel.add(Box.createVerticalGlue());
+        panel.add(centerPanel, BorderLayout.CENTER);
         frame.add(panel, BorderLayout.CENTER);
 
         // Action listener for start button
@@ -56,5 +61,3 @@ public class Main {
         frame.setVisible(true);
     }
 }
-
-
