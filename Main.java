@@ -20,7 +20,7 @@ public class Main {
         // Create and configure the main panel
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
-        panel.setBackground(Color.YELLOW); // Set panel color to yellow
+        panel.setBackground(new Color(0xcdda3e)); // Set panel color to yellow
 
         // Create title label
         JLabel title = new JLabel("Survey form");
@@ -33,6 +33,7 @@ public class Main {
         startButton.setFont(bigFont);
         startButton.setAlignmentX(Component.CENTER_ALIGNMENT); // Center-align button
         startButton.setAlignmentY(Component.CENTER_ALIGNMENT);
+
 
         // Add rigid area to separate button
         panel.add(Box.createRigidArea(new Dimension(10, 20)), BorderLayout.CENTER); // Space between title and button

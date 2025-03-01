@@ -9,7 +9,7 @@ public class questionsPage {
         // Create and configure the panel
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));  // Set layout to BoxLayout (PAGE_AXIS)
-        panel.setBackground(Color.YELLOW); // Set panel background color to yellow
+        panel.setBackground(new Color(0xcdda3e)); // Set panel background color to yellow
 
         Font smallFont = new Font("Times New Roman", Font.BOLD, 15);
 
